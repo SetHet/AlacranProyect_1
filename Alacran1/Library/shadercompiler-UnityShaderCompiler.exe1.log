@@ -1,9 +1,10 @@
-Base path: C:/TrainOfHype/Unity/2018.3.6f1/Editor/Data
+Base path: C:/Program Files/Unity/Hub/Editor/2018.3.6f1/Editor/Data
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=4 insize=1326 outsize=677 ok=1
+  api=4 insize=3636 outsize=8489 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=9814 outsize=3601 ok=1
+  api=4 insize=6111 outsize=9573 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=1565 outsize=1457 ok=1
-Cmd: initializeCompiler
+  api=4 insize=6028 outsize=21205 ok=1
+Cmd: compileComputeKernel
+  api=4 insize=6587 outsize=9089 ok=1
