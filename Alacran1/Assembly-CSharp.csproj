@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMaster.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Utilities\UtilitiesMath.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>C:/Users/MasterRace/Desktop/Proyectos/AlacranProyect_1/Alacran1/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>

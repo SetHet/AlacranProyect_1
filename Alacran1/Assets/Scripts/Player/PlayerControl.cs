@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerControl : MonoBehaviour
     {
-        
-    }
+        [Header("Componentes")]
+        public PlayerMovement playerMovement;
+        [Header("Controles")]
+        public string AxisHorizontal = "Horizontal";
+        public string AxisVertical = "Vertical";
+        public string ButtonJump = "Jump";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Update()
+        {
+            float horizontal = Input.GetAxis(AxisHorizontal);
+            float vertical = Input.GetAxis(AxisVertical);
+            bool jump = Input.GetButtonDown(ButtonJump);
+
+            if (playerMovement != null)
+            {
+                playerMovement.SetDPad(horizontal, vertical);
+                if (jump) playerMovement.CallJump();
+
+                playerMovement.InputComplete();
+            }
+
+        }
     }
 }
