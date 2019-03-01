@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 1376858198}
   - component: {fileID: 1376858197}
   - component: {fileID: 1376858200}
+  - component: {fileID: 1376858201}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -276,9 +277,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1376858197}
+  playerCamera: {fileID: 1376858201}
   AxisHorizontal: Horizontal
   AxisVertical: Vertical
   ButtonJump: Jump
+  AxisLookHorizontal: Mouse X
+  AxisLookVertical: Mouse Y
 --- !u!54 &1376858200
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -293,8 +297,29 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &1376858201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376858194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8f02dcdb5347d449ff82eddd70e2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    body: {fileID: 1376858195}
+    cam: {fileID: 2134329309}
+    rigid: {fileID: 1376858200}
+    normalY: 0.1
+    distanceWalk: 0.7
+    alturaWalk: 0.2
+    angleMax: 90
+    sensibilidad: 2
 --- !u!1 &1443232613
 GameObject:
   m_ObjectHideFlags: 0
