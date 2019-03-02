@@ -248,10 +248,14 @@ MonoBehaviour:
     groundLayer:
       serializedVersion: 2
       m_Bits: 4294967295
+    aceleracionMult: 1.5
     velocidadUP: 10
     desaceleracion: 20
     aceleracion: 20
     velocidadMaxima: 5
+    AxisHorizontal: Horizontal
+    AxisVertical: Vertical
+    ButtonJump: Jump
 --- !u!114 &1376858198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,10 +320,11 @@ MonoBehaviour:
     cam: {fileID: 2134329309}
     rigid: {fileID: 1376858200}
     normalY: 0.1
-    distanceWalk: 0.7
-    alturaWalk: 0.2
+    distanceWalk: 1.5
+    alturaWalk: 0.1
     angleMax: 90
     sensibilidad: 2
+  disableHeadLoop: 0
 --- !u!1 &1443232613
 GameObject:
   m_ObjectHideFlags: 0
