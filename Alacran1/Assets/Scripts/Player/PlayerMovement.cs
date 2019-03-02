@@ -89,13 +89,14 @@ namespace Player
                 float dif = distanceDetect - hit.distance;
                 if (dif < config.velocidadUP * Time.fixedDeltaTime)
                 {
-                    config.collider.transform.position += dirUP * dif;
+                    //config.collider.transform.position += dirUP * dif;
                 }
                 else
                 {
-                    config.collider.transform.position += dirUP * config.velocidadUP * Time.fixedDeltaTime;
+                    //config.collider.transform.position += dirUP * config.velocidadUP * Time.fixedDeltaTime;
                 }
-                config.rigid.AddForce(-Physics.gravity, ForceMode.Acceleration);
+                config.rigid.AddForce(-Physics.gravity * ((Mathf.Sin(dif * Mathf.PI)*config.aceleracionMult)+1), ForceMode.Acceleration);
+                //config.rigid.AddForce(-Physics.gravity, ForceMode.Acceleration);
             }
             else
             {
