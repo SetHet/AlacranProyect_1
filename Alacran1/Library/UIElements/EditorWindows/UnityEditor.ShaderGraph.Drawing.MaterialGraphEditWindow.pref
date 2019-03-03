@@ -22,11 +22,11 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__fc097fac8a9df0a4b97d52e51da87142__MaterialGraphView__UnityEditor.Experimental.UIElements.GraphView.GraphView+PersistedViewTransform
   - __PanelContainer__rootVisualContainer__fc097fac8a9df0a4b97d52e51da87142__MaterialGraphView__UnityEditor.Experimental.UIElements.GraphView.GraphView+PersistedSelection
   m_Values:
+  - '{"position":{"x":341.4385986328125,"y":452.7393798828125,"z":0.0},"scale":{"x":0.6450116038322449,"y":0.6450116038322449,"z":1.0}}'
+  - '{"m_Version":2,"m_SelectedElementsArray":["1adfa998-e0a4-4b2a-91b7-1e0367b78873","7d993158-90a9-4d5c-824a-91fbf594f45a"]}'
   - '{}'
   - '{}'
   - '{}'
   - '{}'
   - '{}'
   - '{}'
-  - '{"position":{"x":825.5,"y":417.5,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}}'
-  - '{"m_Version":36,"m_SelectedElementsArray":["ac51329d-b3eb-400d-a564-64ec4810ce3d"]}'

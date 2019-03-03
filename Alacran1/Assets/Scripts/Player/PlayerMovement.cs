@@ -26,11 +26,15 @@ namespace Player
             public string AxisHorizontal = "Horizontal";
             public string AxisVertical = "Vertical";
             public string ButtonJump = "Jump";
+            [Header("Jump")]
+            public float jumpCooldown = 0.3f;
+            public float jumpVelocity = 5f;
         }
 
         private bool ActionFrame = false;
         private Vector2 DPad = Vector2.zero;
-        private bool Jump = false;
+        private bool jump = false;
+        private float jumpCoolDown = 0;
 
         private bool isGrounded = false;
         #endregion
@@ -48,6 +52,7 @@ namespace Player
                 if (jump) CallJump();
 
                 Walk();
+                Jump();
             }
         }
         #endregion
@@ -67,7 +72,7 @@ namespace Player
 
         public void CallJump()
         {
-            Jump = true;
+            jump = true;
         }
         #endregion
 
@@ -147,6 +152,20 @@ namespace Player
         }
         #endregion
 
-        
+        #region Jump
+        void Jump()
+        {
+            if (jump)
+            {
+                jump = false;
+                if (jumpCoolDown > Time.time) return;
+                jumpCoolDown = Time.time + config.jumpCooldown;
+
+                config.rigid.AddForce(config.jumpVelocity * Vector3.up, ForceMode.VelocityChange);
+            }
+        }
+        #endregion
+
+
     }
 }
