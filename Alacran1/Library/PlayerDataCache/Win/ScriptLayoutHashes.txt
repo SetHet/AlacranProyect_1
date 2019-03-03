@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-C:/Users/MasterRace/Desktop/Proyectos/AlacranProyect_1/Demo/Alacran1.exe
+G:/Otros/WORKS/Proyecto Game/Unity_Github/AlacranProyect_1/Demo/Alacran1.exe
 SceneListBegin?
 Assets/Scenes/default.unity
 SceneListEnd?
@@ -30,7 +30,7 @@ e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventH
 af93f9c42e90877a9ba31e37adfd900c Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.MotionBlur
 9ac327467393cb6c8045a2fd90ff67e2 Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerPersistentCanvas
 1f0602e7bad1e0a9cba31ce292eee8bb Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerVBox
-a710b4534e9cff25b1f38c821205dd15 Assembly-CSharp.dll:Player.PlayerMovement
+d6e25103896979b113b7e0c42e8ee370 Assembly-CSharp.dll:Player.PlayerMovement
 321dce969f1704d676527ee15a4ded1e Unity.VisualEffectGraph.Runtime.dll:UnityEngine.VFX.Utils.VFXRigidBodyCollisionEventBinder
 df234238698383141666442be576639b Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.HDPipeline.RenderPipelineResources
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -223,7 +223,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 4534d366cb551e4098fdfc0cdeb68d23 Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.HDPipeline.ProceduralSky
 8d35f16c5022311c6f4d9432be73bfcf Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerValue
 445a5c00465b89f1b3687a85358d7a2d Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.HDPipeline.GradientSky
-a7c3f3c6eeb1a7835e17fdac32804916 Assembly-CSharp.dll:Player.PlayerCamera
+8eeae9b30708b9d29e3c546fe0de5b49 Assembly-CSharp.dll:Player.PlayerCamera
 6c3dbb1755262b3bad0e7b77a769ef29 Assembly-CSharp.dll:Player.PlayerControl
 f4c02471dcd9f0ddb8c322a1a0beade6 Unity.VisualEffectGraph.Runtime.dll:UnityEngine.VFX.Utils.VFXTriggerEventBinder
 8d35f16c5022311c6f4d9432be73bfcf Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerUIntField

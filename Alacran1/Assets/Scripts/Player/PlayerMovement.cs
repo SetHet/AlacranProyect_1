@@ -17,27 +17,42 @@ namespace Player
             public Rigidbody rigid;
             public float distanceDetectRepair;
             public LayerMask groundLayer = -1;
+            public float aceleracionMult = 1.5f;
             public float velocidadUP = 10f;
             public float desaceleracion = 20f;
             public float aceleracion = 20f;
             public float velocidadMaxima = 5f;
+            [Header("Controles")]
+            public string AxisHorizontal = "Horizontal";
+            public string AxisVertical = "Vertical";
+            public string ButtonJump = "Jump";
+            [Header("Jump")]
+            public float jumpCooldown = 0.3f;
+            public float jumpVelocity = 5f;
         }
 
         private bool ActionFrame = false;
         private Vector2 DPad = Vector2.zero;
-        private bool Jump = false;
+        private bool jump = false;
+        private float jumpCoolDown = 0;
 
         private bool isGrounded = false;
         #endregion
 
         #region Basic Methods
-        private void Update()
+        private void FixedUpdate()
         {
             DetectGround();
-            if (ActionFrame)
+            if (isGrounded)
             {
+                float horizontal = Input.GetAxis(config.AxisHorizontal);
+                float vertical = Input.GetAxis(config.AxisVertical);
+                bool jump = Input.GetButtonDown(config.ButtonJump);
+                SetDPad(horizontal, vertical);
+                if (jump) CallJump();
+
                 Walk();
-                ActionFrame = false;
+                Jump();
             }
         }
         #endregion
@@ -52,11 +67,12 @@ namespace Player
         {
             DPad.x = x;
             DPad.y = y;
+            DPad.Normalize();
         }
 
         public void CallJump()
         {
-            Jump = true;
+            jump = true;
         }
         #endregion
 
@@ -76,19 +92,20 @@ namespace Player
                 isGrounded = true;
 
                 float dif = distanceDetect - hit.distance;
-                if (dif < config.velocidadUP * Time.deltaTime)
+                if (dif < config.velocidadUP * Time.fixedDeltaTime)
                 {
-                    config.collider.transform.position += dirUP * dif;
+                    //config.collider.transform.position += dirUP * dif;
                 }
                 else
                 {
-                    config.collider.transform.position += dirUP * config.velocidadUP * Time.deltaTime;
+                    //config.collider.transform.position += dirUP * config.velocidadUP * Time.fixedDeltaTime;
                 }
-                config.rigid.useGravity = false;
+                config.rigid.AddForce(-Physics.gravity * ((Mathf.Sin(dif * Mathf.PI)*config.aceleracionMult)+1), ForceMode.Acceleration);
+                //config.rigid.AddForce(-Physics.gravity, ForceMode.Acceleration);
             }
             else
             {
-                config.rigid.useGravity = true;
+
             }
         }
         #endregion
@@ -103,14 +120,23 @@ namespace Player
 
             if (DPad == Vector2.zero)
             {
-                if (vel.magnitude <= config.desaceleracion * Time.deltaTime)
+                /*if (vel.magnitude <= config.desaceleracion * Time.deltaTime)
                 {
                     config.rigid.AddForce(-vel, ForceMode.VelocityChange);
                 }
                 else
                 {
                     config.rigid.AddForce(-vel.normalized * config.desaceleracion * Time.deltaTime, ForceMode.VelocityChange);
+                }*/
+                if (config.rigid.velocity.magnitude <= config.desaceleracion * Time.fixedDeltaTime)
+                {
+                    config.rigid.AddForce(-config.rigid.velocity, ForceMode.VelocityChange);
                 }
+                else
+                {
+                    config.rigid.AddForce(-config.rigid.velocity.normalized * config.desaceleracion * Time.fixedDeltaTime, ForceMode.VelocityChange);
+                }
+
             }
             else
             {
@@ -126,6 +152,20 @@ namespace Player
         }
         #endregion
 
-        
+        #region Jump
+        void Jump()
+        {
+            if (jump)
+            {
+                jump = false;
+                if (jumpCoolDown > Time.time) return;
+                jumpCoolDown = Time.time + config.jumpCooldown;
+
+                config.rigid.AddForce(config.jumpVelocity * Vector3.up, ForceMode.VelocityChange);
+            }
+        }
+        #endregion
+
+
     }
 }

@@ -21,6 +21,8 @@ namespace Player
             public float sensibilidad = 1f;
         }
 
+        public bool disableHeadLoop = false;
+
         private float auxDist = 0f;
 
         #region Basic Methods
@@ -50,10 +52,13 @@ namespace Player
         #region HeadLoop
         void HeadLoop()
         {
+            if (disableHeadLoop) return;
             float altura = config.normalY;
 
             auxDist += config.rigid.velocity.magnitude * Time.deltaTime;
             auxDist %= config.distanceWalk;
+
+            Debug.Log("Velocity: " + config.rigid.velocity);
 
             altura += UtilitiesMath.RemapFloat(UtilitiesMath.SenAbs2(auxDist, config.distanceWalk), 0, 1, 0, config.alturaWalk);
 
