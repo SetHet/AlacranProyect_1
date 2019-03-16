@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 namespace Player
 {
@@ -29,6 +30,8 @@ namespace Player
             [Header("Jump")]
             public float jumpCooldown = 0.3f;
             public float jumpVelocity = 5f;
+            [Header("Gravity")]
+            public Utilities.UtilitiesMath.AlgoritmoForPoint VersusGravedad = new UtilitiesMath.AlgoritmoForPoint();
         }
 
         private bool ActionFrame = false;
@@ -91,17 +94,9 @@ namespace Player
             {
                 isGrounded = true;
 
-                float dif = distanceDetect - hit.distance;
-                if (dif < config.velocidadUP * Time.fixedDeltaTime)
-                {
-                    //config.collider.transform.position += dirUP * dif;
-                }
-                else
-                {
-                    //config.collider.transform.position += dirUP * config.velocidadUP * Time.fixedDeltaTime;
-                }
-                config.rigid.AddForce(-Physics.gravity * ((Mathf.Sin(dif * Mathf.PI)*config.aceleracionMult)+1), ForceMode.Acceleration);
-                //config.rigid.AddForce(-Physics.gravity, ForceMode.Acceleration);
+                float dif = ((distanceDetect - hit.distance)/distanceDetect);
+
+                config.rigid.AddForce(-Physics.gravity * (config.VersusGravedad.GetValue(dif)), ForceMode.Acceleration);
             }
             else
             {
