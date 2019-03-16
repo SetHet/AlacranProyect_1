@@ -58,7 +58,7 @@ namespace Player
             auxDist += config.rigid.velocity.magnitude * Time.deltaTime;
             auxDist %= config.distanceWalk;
 
-            Debug.Log("Velocity: " + config.rigid.velocity);
+            //Debug.Log("Velocity: " + config.rigid.velocity);
 
             altura += UtilitiesMath.RemapFloat(UtilitiesMath.SenAbs2(auxDist, config.distanceWalk), 0, 1, 0, config.alturaWalk);
 

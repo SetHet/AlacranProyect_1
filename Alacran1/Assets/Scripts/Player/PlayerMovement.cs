@@ -95,8 +95,8 @@ namespace Player
                 isGrounded = true;
 
                 float dif = ((distanceDetect - hit.distance)/distanceDetect);
-
                 config.rigid.AddForce(-Physics.gravity * (config.VersusGravedad.GetValue(dif)), ForceMode.Acceleration);
+                Debug.Log("dif:" + dif + "__func:" + config.VersusGravedad.GetValue(dif) + "__Aceleration:"+ (-Physics.gravity * config.VersusGravedad.GetValue(dif)));
             }
             else
             {
