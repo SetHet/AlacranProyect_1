@@ -80,14 +80,14 @@ namespace Utilities
                 {
                     case TypeConnection.lineal:
                         return distAX / distAB;
-                        break;
+                        //break;
                     case TypeConnection.smooth:
                         float rad = distAX * Mathf.PI / distAB;
                         return ((-Mathf.Cos(rad))+1)/2f;
-                        break;
+                        //break;
                     default:
                         return 0f;
-                        break;
+                        //break;
                 }
             }
         }
