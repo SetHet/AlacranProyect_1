@@ -28,14 +28,24 @@ namespace Utilities
         {
             public List<Vector2> points = new List<Vector2>();
             public TypeConnection typeConnection = TypeConnection.lineal;
+            [Range(0f, 1f)]
+            public float blendSmooth = 0.5f;
             public enum TypeConnection
             {
-                lineal, smooth
+                lineal, smooth, blend
             }
 
-            public void SetType(TypeConnection type)
+            public void SetType(TypeConnection type, float valueBlend = 0.5f)
             {
                 typeConnection = type;
+                SetBlend(valueBlend);
+            }
+
+            public void SetBlend(float valueBlend = 0.5f)
+            {
+                if (valueBlend < 0f) blendSmooth = 0f;
+                else if (valueBlend > 1f) blendSmooth = 1f;
+                else blendSmooth = valueBlend;
             }
 
             public void AddPoint(float x, float y)
@@ -76,15 +86,21 @@ namespace Utilities
                 float distAB = points[index + 1].x - points[index].x;
                 if (distAB == 0f) return 0f;
                 float distAX = x - points[index].x;
+                float rad = 0f;
                 switch (typeConnection)
                 {
                     case TypeConnection.lineal:
                         return distAX / distAB;
                         //break;
                     case TypeConnection.smooth:
-                        float rad = distAX * Mathf.PI / distAB;
+                        rad = distAX * Mathf.PI / distAB;
                         return ((-Mathf.Cos(rad))+1)/2f;
-                        //break;
+                    //break;
+                    case TypeConnection.blend:
+                        float valLineal = distAX / distAB;
+                        rad = valLineal * Mathf.PI;
+                        float valSmooth = ((-Mathf.Cos(rad)) + 1) / 2f;
+                        return (valLineal * (1f - blendSmooth)) + (valSmooth * blendSmooth);
                     default:
                         return 0f;
                         //break;
