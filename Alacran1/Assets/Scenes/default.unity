@@ -10977,7 +10977,7 @@ PrefabInstance:
     - target: {fileID: 4215785909157950304, guid: e7688ff7083368d4f87cb601f2a38f87,
         type: 3}
       propertyPath: config.VersusGravedad.points.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4215785909157950304, guid: e7688ff7083368d4f87cb601f2a38f87,
         type: 3}
@@ -10987,7 +10987,7 @@ PrefabInstance:
     - target: {fileID: 4215785909157950304, guid: e7688ff7083368d4f87cb601f2a38f87,
         type: 3}
       propertyPath: config.VersusGravedad.points.Array.data[1].x
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4215785909157950304, guid: e7688ff7083368d4f87cb601f2a38f87,
         type: 3}
