@@ -3708,6 +3708,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1094963924600792379, guid: 32bbd97cd3d0f7c4088f0425ba4da38d,
+        type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632761006483665694, guid: 32bbd97cd3d0f7c4088f0425ba4da38d,
+        type: 3}
+      propertyPath: config.JumpVel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32bbd97cd3d0f7c4088f0425ba4da38d, type: 3}
 --- !u!1001 &717724964

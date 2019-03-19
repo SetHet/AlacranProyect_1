@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2541697326863040116}
   - component: {fileID: 960307283613514077}
   - component: {fileID: 1094963924600792379}
+  - component: {fileID: 503000093774467756}
+  - component: {fileID: 6632761006483665694}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -60,9 +62,39 @@ CharacterController:
   m_Radius: 0.3
   m_SlopeLimit: 50
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.41
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &503000093774467756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541697326863040117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f17d09413123b488b49872658e0043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameInputs:
+    MoverLateral: Horizontal
+    MoverFrontal: Vertical
+    Jump: Jump
+--- !u!114 &6632761006483665694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541697326863040117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10beb6cef94154b42a1369819193406d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    JumpVel: 1
 --- !u!1 &2541697327481833982
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,4 +199,4 @@ MonoBehaviour:
     alturaWalk: 0.2
     angleMax: 90
     sensibilidad: 1
-  disableHeadLoop: 0
+  disableHeadLoop: 1
