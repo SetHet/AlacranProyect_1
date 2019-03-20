@@ -13,7 +13,7 @@ namespace Player
         {
             public Transform body;
             public Camera cam;
-            public Rigidbody rigid;
+            public CharacterController characteterController;
             public float normalY = 0.3f;
             public float distanceWalk = 0.7f;
             public float alturaWalk = 0.2f;
@@ -28,6 +28,8 @@ namespace Player
         #region Basic Methods
         private void Update()
         {
+            Vector2 LookVelocity = PlayerInput.current.GetLook();
+            Look(LookVelocity.x, LookVelocity.y);
             HeadLoop();
         }
         #endregion
@@ -55,7 +57,7 @@ namespace Player
             if (disableHeadLoop) return;
             float altura = config.normalY;
 
-            auxDist += config.rigid.velocity.magnitude * Time.deltaTime;
+            auxDist += config.characteterController.velocity.magnitude * Time.deltaTime;
             auxDist %= config.distanceWalk;
 
             //Debug.Log("Velocity: " + config.rigid.velocity);

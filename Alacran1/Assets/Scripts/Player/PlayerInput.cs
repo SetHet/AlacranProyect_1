@@ -32,9 +32,14 @@ public class PlayerInput : MonoBehaviour
     [System.Serializable]
     public class NameInputs
     {
+        [Header("Movimiento")]
         public string MoverLateral = "Horizontal";
         public string MoverFrontal = "Vertical";
         public string Jump = "Jump";
+        [Header("Vision")]
+        public string LookRight = "Mouse X";
+        public string LookUp = "Mouse Y";
+
     }
     #endregion
 
@@ -50,6 +55,11 @@ public class PlayerInput : MonoBehaviour
         {
             return Input.GetButtonDown(nameInputs.Jump);
         }
+    }
+
+    public Vector2 GetLook()
+    {
+        return new Vector2(Input.GetAxis(nameInputs.LookRight), -Input.GetAxis(nameInputs.LookUp));
     }
     #endregion
 }

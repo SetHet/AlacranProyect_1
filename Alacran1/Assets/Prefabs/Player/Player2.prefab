@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1094963924600792379}
   - component: {fileID: 503000093774467756}
   - component: {fileID: 6632761006483665694}
+  - component: {fileID: 7155810849018584578}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -62,7 +63,7 @@ CharacterController:
   m_Radius: 0.3
   m_SlopeLimit: 50
   m_StepOffset: 0.3
-  m_SkinWidth: 0.41
+  m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &503000093774467756
@@ -81,6 +82,8 @@ MonoBehaviour:
     MoverLateral: Horizontal
     MoverFrontal: Vertical
     Jump: Jump
+    LookRight: Mouse X
+    LookUp: Mouse Y
 --- !u!114 &6632761006483665694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +97,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    JumpVel: 1
+    VelocidadWalk: 3
+    VelocidadRun: 6
+    VelocidadRunBoorst: 10
+    JumpVel: 5
+--- !u!114 &7155810849018584578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541697326863040117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875c8aefe69153e48a5077f28b293e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    body: {fileID: 2541697326863040116}
+    cam: {fileID: 2541697327481833978}
+    characteterController: {fileID: 1094963924600792379}
+    normalY: 0.3
+    distanceWalk: 1
+    alturaWalk: 0.2
+    angleMax: 90
+    sensibilidad: 2
+  disableHeadLoop: 0
 --- !u!1 &2541697327481833982
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +221,7 @@ MonoBehaviour:
   config:
     body: {fileID: 2541697326863040116}
     cam: {fileID: 2541697327481833978}
-    rigid: {fileID: 0}
+    characteterController: {fileID: 0}
     normalY: 0.3
     distanceWalk: 1.5
     alturaWalk: 0.2

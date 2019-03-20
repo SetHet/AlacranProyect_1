@@ -6,11 +6,15 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     #region Variables
+    protected Vector3 velocity = Vector3.zero;
     protected CharacterController characterController;
     public Config config = new Config();
     [System.Serializable]
     public class Config
     {
+        public float VelocidadWalk = 3f;
+        public float VelocidadRun = 6f;
+        public float VelocidadRunBoorst = 10f;
         public float JumpVel = 5f;
     }
     #endregion
@@ -23,13 +27,20 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float Up = characterController.velocity.y;
-        Debug.Log(Up);
-        Debug.Log("fixedUpdatetime: "+ Time.fixedDeltaTime);
-        if (!characterController.isGrounded) Up += (Physics.gravity.y * Time.fixedDeltaTime);
-        else if (PlayerInput.current.isJump) Up = Up + config.JumpVel;
-        Vector3 vel = new Vector3(PlayerInput.current.GetWalk().x, Up, PlayerInput.current.GetWalk().y);
-        characterController.Move(vel);
+        //Calcular Caida y Salto 
+        float Up = 0;
+        if (!characterController.isGrounded) Up = velocity.y;
+        Up += (Physics.gravity.y * Time.fixedDeltaTime);
+        if (PlayerInput.current.isJump && characterController.isGrounded) Up = Up + config.JumpVel;
+
+        //Calcular Velocidad y guardar esta
+        Vector3 vel = new Vector3();
+        vel += characterController.transform.forward * PlayerInput.current.GetWalk().y;
+        vel += characterController.transform.right * PlayerInput.current.GetWalk().x;
+        vel = vel.normalized * config.VelocidadWalk;
+        vel.y += Up;
+        characterController.Move(vel * Time.fixedDeltaTime);
+        velocity = vel;
     }
     #endregion
 
