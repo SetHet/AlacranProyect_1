@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 503000093774467756}
   - component: {fileID: 6632761006483665694}
   - component: {fileID: 7155810849018584578}
+  - component: {fileID: 2666006929253940001}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -123,6 +124,26 @@ MonoBehaviour:
     angleMax: 90
     sensibilidad: 2
   disableHeadLoop: 0
+--- !u!114 &2666006929253940001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541697326863040117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bb1b90995ec4a3bb1897d9978bf2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    nodos:
+    - max: 35
+      current: 35
+    - max: 35
+      current: 35
+    - max: 30
+      current: 30
 --- !u!1 &2541697327481833982
 GameObject:
   m_ObjectHideFlags: 0
