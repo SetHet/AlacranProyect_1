@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     #region Vars
-    public Health health;
-    public Armor armor;
+    public Health _health = new Health();
+    public Armor armor = new Armor();
     #endregion
 
     #region Classes
@@ -94,8 +94,18 @@ public class PlayerStats : MonoBehaviour
             if (nodos.Count > 0 && nodos[0].isDisable) Debug.Log("Death player");
         }
 
-        public void LifeTopZero(){
-            AddDamage(10000000);
+        public void DebugLifeTopZero(){
+            DebugLookCurrent();
+            AddDamage(99);
+            DebugLookCurrent();
+        }
+
+        public void DebugLookCurrent(){
+            string mensaje = "HealthCurrent >>>> ";
+            for(int i = 0; i < nodos.Count; i++){
+                mensaje += "num:"+i+": Valor:"+nodos[i].GetCurrent+">>";
+            }
+            Debug.Log(mensaje);
         }
         #endregion
     }
@@ -109,16 +119,16 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health.Init();
+        _health.Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        health.AutoRegeration(Time.deltaTime);
+        _health.AutoRegeration(Time.deltaTime);
     }
 
     public void D(){
-        health.LifeTopZero();
+        _health.DebugLifeTopZero();
     }
 }
