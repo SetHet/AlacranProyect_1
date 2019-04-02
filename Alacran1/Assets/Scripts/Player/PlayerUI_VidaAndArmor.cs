@@ -23,7 +23,10 @@ public class PlayerUI_VidaAndArmor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < vida.imagen.Count; i++)
+        {
+            vida.imagen[i].material = Material.Instantiate(vida.imagen[i].material);
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +39,8 @@ public class PlayerUI_VidaAndArmor : MonoBehaviour
     void UpdateHealth(){
         if (vida.imagen.Count != pStats._health.nodos.Count) return;
         for(int i = 0; i < vida.imagen.Count; i++){
-            vida.imagen[i].fillAmount = pStats._health.nodos[i].GetPercent;
+            //vida.imagen[i].fillAmount = pStats._health.nodos[i].GetPercent;
+            vida.imagen[i].material.SetFloat("Vector1_78A06364", pStats._health.nodos[i].GetPercent);
         }
     }
 
