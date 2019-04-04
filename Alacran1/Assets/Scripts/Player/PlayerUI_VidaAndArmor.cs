@@ -15,7 +15,8 @@ public class PlayerUI_VidaAndArmor : MonoBehaviour
     
     public PlayerStats pStats;
     public Modulo vida = new Modulo();
-    public Modulo armor = new Modulo();
+    public Image armor;
+    public string VariableFillAmountID = "Vector1_78A06364";
 
     #endregion
 
@@ -27,6 +28,7 @@ public class PlayerUI_VidaAndArmor : MonoBehaviour
         {
             vida.imagen[i].material = Material.Instantiate(vida.imagen[i].material);
         }
+        armor.material = Instantiate(armor.material);
     }
 
     // Update is called once per frame
@@ -37,14 +39,14 @@ public class PlayerUI_VidaAndArmor : MonoBehaviour
     }
 
     void UpdateHealth(){
-        if (vida.imagen.Count != pStats._health.nodos.Count) return;
+        if (vida.imagen.Count != pStats.health.nodos.Count) return;
         for(int i = 0; i < vida.imagen.Count; i++){
-            //vida.imagen[i].fillAmount = pStats._health.nodos[i].GetPercent;
-            vida.imagen[i].material.SetFloat("Vector1_78A06364", pStats._health.nodos[i].GetPercent);
+            vida.imagen[i].material.SetFloat(VariableFillAmountID, pStats.health.nodos[i].GetPercent);
         }
     }
 
     void UpdateArmor(){
-
+        if (armor == null) return;
+        armor.material.SetFloat(VariableFillAmountID, pStats.armor.GetPercent);
     }
 }

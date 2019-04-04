@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     #region Vars
-    public Health _health = new Health();
+    public Health health = new Health();
     public Armor armor = new Armor();
     #endregion
 
@@ -84,19 +84,30 @@ public class PlayerStats : MonoBehaviour
             return;
         }
 
-        public void AddDamage(float value){
+        public float Heal(float value)
+        {
+            for (int i = 0; i < nodos.Count; i++)
+            {
+                if (nodos[i].isComplete) continue;
+                value = nodos[i].Heal(value);
+                if (value == 0) break;
+            }
+            return value;
+        }
+
+        public float Damage(float value){
             ContinueRegeneration = Time.time + CooldownRegenerate;
             for (int i = nodos.Count - 1; i >=0; i--){
                 if (nodos[i].isDisable) continue;
                 value = nodos[i].Damage(value);
             }
-
             if (nodos.Count > 0 && nodos[0].isDisable) Debug.Log("Death player");
+            return value;
         }
 
         public void DebugLifeTopZero(){
             DebugLookCurrent();
-            AddDamage(99);
+            Damage(99);
             DebugLookCurrent();
         }
 
@@ -112,23 +123,81 @@ public class PlayerStats : MonoBehaviour
 
     [System.Serializable]
     public class Armor{
+        #region Variables
+        [SerializeField] protected float max = 50;
+        protected float current = 0;
+        #endregion
 
+        #region Methods
+        public float GetCurrent { get { return current; } }
+        public float GetPercent { get { return current / max; } }
+        public bool isComplete { get { return current > max; } }
+        public bool isEmpty { get { return current <= 0; } }
+        [System.Obsolete("Use isEmpty.")]
+        public bool isVoid { get { return isEmpty; } }
+        public void Init()
+        {
+            current = max;
+        }
+        public void SetMax(float newMax)
+        {
+            if (newMax < 0) max = 0;
+            else max = newMax;
+        }
+        public float RemoveArmor(float value)
+        {
+            current -= value;
+            if (current < 0)
+            {
+                float dif = -current;
+                current = 0;
+                return dif;
+            }
+            return 0;
+        }
+        public float AddArmor(float value)
+        {
+            current += value;
+            if (current > max)
+            {
+                float excedente = current - max;
+                current = max;
+                return excedente;
+            }
+            return 0;
+        }
+        #endregion
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _health.Init();
+        health.Init();
+        armor.Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _health.AutoRegeration(Time.deltaTime);
+        health.AutoRegeration(Time.deltaTime);
+        
     }
 
-    public void D(){
-        _health.DebugLifeTopZero();
+    public void Damage(float value)
+    {
+        if (value > 0) value = armor.RemoveArmor(value);
+        if (value > 0) value = health.Damage(value);
     }
+
+    public void Heal(float value)
+    {
+        if (value > 0) value = health.Heal(value);
+    }
+
+    public void RepairArmor(float value)
+    {
+        if (value > 0) value = armor.AddArmor(value);
+    }
+
 }
