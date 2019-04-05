@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: test material
+  m_Name: TemporalDemoMaterial
   m_Shader: {fileID: 4800000, guid: 54da270ed777e9e4aba8bf516cdadbee, type: 3}
   m_ShaderKeywords: BOOLEAN_6D7BCEB2_ON
   m_LightmapFlags: 4
@@ -46,7 +46,7 @@ Material:
     m_Floats:
     - Boolean_6D7BCEB2: 1
     - Vector1_A79FBDA6: 1
-    - Vector1_C24586E5: 0.03
+    - Vector1_C24586E5: 0.02
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
