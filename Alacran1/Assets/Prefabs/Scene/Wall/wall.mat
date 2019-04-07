@@ -14,11 +14,17 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_C20697E:
+        m_Texture: {fileID: 2800000, guid: 6a36065038049944b9c7e7bdf8841722, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_D9E7A494:
         m_Texture: {fileID: 2800000, guid: e11b26e521c8b114ca7e35f83cabad51, type: 3}
         m_Scale: {x: 1, y: 1}
