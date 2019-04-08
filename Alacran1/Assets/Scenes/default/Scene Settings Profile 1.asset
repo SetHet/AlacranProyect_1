@@ -10,14 +10,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Scene Settings Profile
+  m_Name: Scene Settings Profile 1
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 114589026871802036}
-  - {fileID: 114114717769512958}
-  - {fileID: 114157552052195820}
-  - {fileID: 114597124139456912}
---- !u!114 &114114717769512958
+  - {fileID: 114228205542229052}
+  - {fileID: 114443482157538968}
+  - {fileID: 114546236744087898}
+  - {fileID: 114926053402876962}
+--- !u!114 &114228205542229052
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  maxShadowDistance:
+    m_OverrideState: 1
+    m_Value: 500
+    min: 0
+  cascadeShadowSplitCount:
+    m_OverrideState: 1
+    m_Value: 4
+    min: 1
+    max: 4
+  cascadeShadowSplit0:
+    m_OverrideState: 1
+    m_Value: 0.05
+    min: 0
+    max: 1
+  cascadeShadowSplit1:
+    m_OverrideState: 1
+    m_Value: 0.15
+    min: 0
+    max: 1
+  cascadeShadowSplit2:
+    m_OverrideState: 1
+    m_Value: 0.3
+    min: 0
+    max: 1
+  cascadeShadowBorder0:
+    m_OverrideState: 1
+    m_Value: 0
+    min: 0
+  cascadeShadowBorder1:
+    m_OverrideState: 1
+    m_Value: 0
+    min: 0
+  cascadeShadowBorder2:
+    m_OverrideState: 1
+    m_Value: 0
+    min: 0
+  cascadeShadowBorder3:
+    m_OverrideState: 1
+    m_Value: 0
+    min: 0
+--- !u!114 &114443482157538968
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,7 +89,7 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 1
     m_Value: 2
---- !u!114 &114157552052195820
+--- !u!114 &114546236744087898
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,60 +164,7 @@ MonoBehaviour:
   enableSunDisk:
     m_OverrideState: 1
     m_Value: 1
---- !u!114 &114589026871802036
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddcec8a8eb2d684d833ac8f5d26aebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  maxShadowDistance:
-    m_OverrideState: 1
-    m_Value: 200
-    min: 0
-  cascadeShadowSplitCount:
-    m_OverrideState: 1
-    m_Value: 4
-    min: 1
-    max: 4
-  cascadeShadowSplit0:
-    m_OverrideState: 1
-    m_Value: 0.05
-    min: 0
-    max: 1
-  cascadeShadowSplit1:
-    m_OverrideState: 1
-    m_Value: 0.15
-    min: 0
-    max: 1
-  cascadeShadowSplit2:
-    m_OverrideState: 1
-    m_Value: 0.3
-    min: 0
-    max: 1
-  cascadeShadowBorder0:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-  cascadeShadowBorder1:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-  cascadeShadowBorder2:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-  cascadeShadowBorder3:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
---- !u!114 &114597124139456912
+--- !u!114 &114926053402876962
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

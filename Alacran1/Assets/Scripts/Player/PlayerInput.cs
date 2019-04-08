@@ -39,6 +39,8 @@ public class PlayerInput : MonoBehaviour
         [Header("Vision")]
         public string LookRight = "Mouse X";
         public string LookUp = "Mouse Y";
+        [Header("Acciones")]
+        public string LeftClick = "Fire1";
 
     }
     #endregion
@@ -60,6 +62,11 @@ public class PlayerInput : MonoBehaviour
     public Vector2 GetLook()
     {
         return new Vector2(Input.GetAxis(nameInputs.LookRight), -Input.GetAxis(nameInputs.LookUp));
+    }
+
+    public bool GetLeftClickMouse_Down()
+    {
+        return Input.GetButtonDown(nameInputs.LeftClick);
     }
     #endregion
 }
