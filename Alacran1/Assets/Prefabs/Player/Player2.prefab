@@ -268,13 +268,13 @@ MonoBehaviour:
       max: 3
     ammo_shotgun:
       current: 0
-      max: 3
+      max: 16
     ammo_pistol:
       current: 0
-      max: 3
+      max: 30
     ammo_ametralladora:
       current: 0
-      max: 3
+      max: 90
   camara: {fileID: 2541697327481833978}
   itemLayer:
     serializedVersion: 2
@@ -833,6 +833,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
+    - target: {fileID: 1610237764484237674, guid: fcde0208e93ea5741b9ba23c72c46ec3,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 257189564324613502, guid: fcde0208e93ea5741b9ba23c72c46ec3,
         type: 3}
       propertyPath: m_Name
@@ -943,11 +948,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1610237764484237674, guid: fcde0208e93ea5741b9ba23c72c46ec3,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1566350445953521294, guid: fcde0208e93ea5741b9ba23c72c46ec3,
         type: 3}
       propertyPath: m_RaycastTarget
@@ -995,11 +995,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
-    - target: {fileID: 7194828300542455199, guid: 078f46d5815a8244f82a62a6f86798de,
-        type: 3}
-      propertyPath: m_Name
-      value: Armor
-      objectReference: {fileID: 0}
     - target: {fileID: 4069090217320860200, guid: 078f46d5815a8244f82a62a6f86798de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1105,6 +1100,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7194828300542455199, guid: 078f46d5815a8244f82a62a6f86798de,
+        type: 3}
+      propertyPath: m_Name
+      value: Armor
+      objectReference: {fileID: 0}
     - target: {fileID: 2182635027296146154, guid: 078f46d5815a8244f82a62a6f86798de,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1167,11 +1167,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
-    - target: {fileID: 290939483617516750, guid: 5d608648d643c7a4c8487bf87fffcccf,
-        type: 3}
-      propertyPath: m_Name
-      value: Vida (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8605851107541661289, guid: 5d608648d643c7a4c8487bf87fffcccf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,6 +1276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290939483617516750, guid: 5d608648d643c7a4c8487bf87fffcccf,
+        type: 3}
+      propertyPath: m_Name
+      value: Vida (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2298017415560209039, guid: 5d608648d643c7a4c8487bf87fffcccf,
         type: 3}
