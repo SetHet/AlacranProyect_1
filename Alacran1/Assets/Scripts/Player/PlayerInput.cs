@@ -41,6 +41,7 @@ public class PlayerInput : MonoBehaviour
         public string LookUp = "Mouse Y";
         [Header("Acciones")]
         public string LeftClick = "Fire1";
+        public KeyCode getItem = KeyCode.E;
 
     }
     #endregion
@@ -64,9 +65,9 @@ public class PlayerInput : MonoBehaviour
         return new Vector2(Input.GetAxis(nameInputs.LookRight), -Input.GetAxis(nameInputs.LookUp));
     }
 
-    public bool GetLeftClickMouse_Down()
+    public bool GetItem()
     {
-        return Input.GetButtonDown(nameInputs.LeftClick);
+        return Input.GetKeyDown(nameInputs.getItem);
     }
     #endregion
 }

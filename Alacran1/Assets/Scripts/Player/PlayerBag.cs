@@ -55,7 +55,7 @@ public class PlayerBag : MonoBehaviour
     #region BasicMethods
     private void Update()
     {
-        if (PlayerInput.current.GetLeftClickMouse_Down())
+        if (PlayerInput.current.GetItem())
         {
             DetectObject();
         }
