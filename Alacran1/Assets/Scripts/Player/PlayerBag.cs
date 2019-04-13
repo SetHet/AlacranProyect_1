@@ -50,6 +50,16 @@ public class PlayerBag : MonoBehaviour
     public Camera camara;
     public LayerMask itemLayer = 0;
     public float distanceDetectItem = 2f;
+
+    ItemSelected itemSelected = ItemSelected.pistol;
+    enum ItemSelected
+    {
+        pistol,
+        ametralladora,
+        shotgun,
+        botiquin,
+        placaArmor
+    }
     #endregion
 
     #region BasicMethods
@@ -59,6 +69,7 @@ public class PlayerBag : MonoBehaviour
         {
             DetectObject();
         }
+        SelectItem();
     }
     #endregion
 
@@ -102,6 +113,14 @@ public class PlayerBag : MonoBehaviour
         }
 
         if (item.cantidad <= 0) Destroy(item.gameObject);
+    }
+    void SelectItem()
+    {
+        if (PlayerInput.current.SelectItemPistol()) itemSelected = ItemSelected.pistol;
+        else if (PlayerInput.current.SelectItemAmetralladora()) itemSelected = ItemSelected.ametralladora;
+        else if (PlayerInput.current.SelectItemShotgun()) itemSelected = ItemSelected.shotgun;
+        else if (PlayerInput.current.SelectItemBotiquin()) itemSelected = ItemSelected.botiquin;
+        else if (PlayerInput.current.SelectItemPlaca()) itemSelected = ItemSelected.placaArmor;
     }
     #endregion
 

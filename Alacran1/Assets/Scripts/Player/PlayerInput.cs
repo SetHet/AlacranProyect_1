@@ -42,6 +42,12 @@ public class PlayerInput : MonoBehaviour
         [Header("Acciones")]
         public string LeftClick = "Fire1";
         public KeyCode getItem = KeyCode.E;
+        [Header("Items")]
+        public KeyCode selectItemPistol = KeyCode.Alpha1;
+        public KeyCode selectItemAmetralladora = KeyCode.Alpha2;
+        public KeyCode selectItemShotgun = KeyCode.Alpha3;
+        public KeyCode selectItemBotiquin = KeyCode.Alpha4;
+        public KeyCode selectItemPlaca = KeyCode.Alpha5;
 
     }
     #endregion
@@ -68,6 +74,27 @@ public class PlayerInput : MonoBehaviour
     public bool GetItem()
     {
         return Input.GetKeyDown(nameInputs.getItem);
+    }
+
+    public bool SelectItemPistol()
+    {
+        return Input.GetKeyDown(nameInputs.selectItemPistol);
+    }
+    public bool SelectItemAmetralladora()
+    {
+        return Input.GetKeyDown(nameInputs.selectItemAmetralladora);
+    }
+    public bool SelectItemShotgun()
+    {
+        return Input.GetKeyDown(nameInputs.selectItemShotgun);
+    }
+    public bool SelectItemBotiquin()
+    {
+        return Input.GetKeyDown(nameInputs.selectItemBotiquin);
+    }
+    public bool SelectItemPlaca()
+    {
+        return Input.GetKeyDown(nameInputs.selectItemPlaca);
     }
     #endregion
 }
