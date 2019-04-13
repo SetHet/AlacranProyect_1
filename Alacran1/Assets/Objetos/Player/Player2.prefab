@@ -187,6 +187,12 @@ MonoBehaviour:
     LookRight: Mouse X
     LookUp: Mouse Y
     LeftClick: Fire1
+    getItem: 101
+    selectItemPistol: 49
+    selectItemAmetralladora: 50
+    selectItemShotgun: 51
+    selectItemBotiquin: 52
+    selectItemPlaca: 53
 --- !u!114 &6632761006483665694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +286,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   distanceDetectItem: 2
+  obj_botiquin: {fileID: 0}
+  obj_armadura: {fileID: 0}
+  obj_pistola: {fileID: 0}
+  obj_shotgun: {fileID: 0}
+  obj_ametralladora: {fileID: 2881217433377018748}
 --- !u!1 &2541697327481833982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
+    - target: {fileID: 1610237764484237674, guid: fcde0208e93ea5741b9ba23c72c46ec3,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 257189564324613502, guid: fcde0208e93ea5741b9ba23c72c46ec3,
         type: 3}
       propertyPath: m_Name
@@ -1231,11 +1247,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1610237764484237674, guid: fcde0208e93ea5741b9ba23c72c46ec3,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1566350445953521294, guid: fcde0208e93ea5741b9ba23c72c46ec3,
         type: 3}
@@ -1502,6 +1513,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2881217433376921052}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2881217433377018748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 707313571a022ac4bb5da2090983b94e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2881217433376921052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3348689051622586214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,11 +1683,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
-    - target: {fileID: 7194828300542455199, guid: 078f46d5815a8244f82a62a6f86798de,
-        type: 3}
-      propertyPath: m_Name
-      value: Armor
-      objectReference: {fileID: 0}
     - target: {fileID: 4069090217320860200, guid: 078f46d5815a8244f82a62a6f86798de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1776,6 +1788,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7194828300542455199, guid: 078f46d5815a8244f82a62a6f86798de,
+        type: 3}
+      propertyPath: m_Name
+      value: Armor
+      objectReference: {fileID: 0}
     - target: {fileID: 2182635027296146154, guid: 078f46d5815a8244f82a62a6f86798de,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1813,12 +1830,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 078f46d5815a8244f82a62a6f86798de, type: 3}
---- !u!224 &1644203104458787021 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4069090217320860200, guid: 078f46d5815a8244f82a62a6f86798de,
-    type: 3}
-  m_PrefabInstance: {fileID: 3362269163500405477}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8946815268929970231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5944844866997297874, guid: 078f46d5815a8244f82a62a6f86798de,
@@ -1831,6 +1842,12 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1644203104458787021 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4069090217320860200, guid: 078f46d5815a8244f82a62a6f86798de,
+    type: 3}
+  m_PrefabInstance: {fileID: 3362269163500405477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6338634246018110738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1838,11 +1855,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081623855641993471}
     m_Modifications:
-    - target: {fileID: 290939483617516750, guid: 5d608648d643c7a4c8487bf87fffcccf,
-        type: 3}
-      propertyPath: m_Name
-      value: Vida (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8605851107541661289, guid: 5d608648d643c7a4c8487bf87fffcccf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1952,6 +1964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290939483617516750, guid: 5d608648d643c7a4c8487bf87fffcccf,
+        type: 3}
+      propertyPath: m_Name
+      value: Vida (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2298017415560209039, guid: 5d608648d643c7a4c8487bf87fffcccf,
         type: 3}

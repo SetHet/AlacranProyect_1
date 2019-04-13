@@ -60,6 +60,21 @@ public class PlayerBag : MonoBehaviour
         botiquin,
         placaArmor
     }
+
+    public GameObject obj_botiquin;
+    public GameObject obj_armadura;
+    public GameObject obj_pistola;
+    public GameObject obj_shotgun;
+    public GameObject obj_ametralladora;
+
+
+    //esto se usaria más adelante
+    [System.Serializable]
+    public class _Idea_Objetos
+    {
+        public string name;
+        public GameObject obj;
+    }
     #endregion
 
     #region BasicMethods
@@ -116,11 +131,56 @@ public class PlayerBag : MonoBehaviour
     }
     void SelectItem()
     {
+        bool change = true;
         if (PlayerInput.current.SelectItemPistol()) itemSelected = ItemSelected.pistol;
         else if (PlayerInput.current.SelectItemAmetralladora()) itemSelected = ItemSelected.ametralladora;
         else if (PlayerInput.current.SelectItemShotgun()) itemSelected = ItemSelected.shotgun;
         else if (PlayerInput.current.SelectItemBotiquin()) itemSelected = ItemSelected.botiquin;
         else if (PlayerInput.current.SelectItemPlaca()) itemSelected = ItemSelected.placaArmor;
+        else change = false;
+        if (change) ChangeSelectItem();
+    }
+    void ChangeSelectItem()
+    {
+        DesabilitarAll();
+        switch (itemSelected)
+        {
+            case ItemSelected.pistol:
+                if (obj_pistola != null)
+                    obj_pistola.SetActive(true);
+                break;
+            case ItemSelected.ametralladora:
+                if (obj_ametralladora != null)
+                    obj_ametralladora.SetActive(true);
+                break;
+            case ItemSelected.shotgun:
+                if (obj_shotgun != null)
+                    obj_shotgun.SetActive(true);
+                break;
+            case ItemSelected.botiquin:
+                if (obj_botiquin != null)
+                    obj_botiquin.SetActive(true);
+                break;
+            case ItemSelected.placaArmor:
+                if (obj_armadura != null)
+                    obj_armadura.SetActive(true);
+                break;
+            default:
+                Debug.Log("Change Select Item, no se identifico el objeto");
+                break;
+        }
+    }
+    void DesabilitarAll()
+    {
+        Desabilitar(obj_botiquin);
+        Desabilitar(obj_armadura);
+        Desabilitar(obj_pistola);
+        Desabilitar(obj_ametralladora);
+        Desabilitar(obj_shotgun);
+    }
+    void Desabilitar(GameObject obj)
+    {
+        if (obj != null) obj.SetActive(false);
     }
     #endregion
 
