@@ -35,13 +35,31 @@ public class PlayerMove : MonoBehaviour
 
         //Calcular Velocidad y guardar esta
         Vector3 vel = new Vector3();
-        vel += characterController.transform.forward * PlayerInput.current.GetWalk().y;
-        vel += characterController.transform.right * PlayerInput.current.GetWalk().x;
-        vel = vel.normalized * config.VelocidadWalk;
+        CalcularVelocidad(ref vel);
         vel.y += Up;
         characterController.Move(vel * Time.fixedDeltaTime);
         velocity = vel;
     }
     #endregion
 
+    #region Methods
+    void CalcularVelocidad(ref Vector3 vel)
+    {
+        vel += characterController.transform.forward * PlayerInput.current.GetWalk.y;
+        vel += characterController.transform.right * PlayerInput.current.GetWalk.x;
+        vel = vel.normalized;
+
+        if (PlayerInput.current.isRun)
+        {
+            if (PlayerStats.current.Energy_Use(Time.fixedDeltaTime))
+                vel *= Utilities.UtilitiesMath.RemapFloat(PlayerStats.current.energy.percent, 0f, 1f, config.VelocidadRun, config.VelocidadRunBoorst);
+            else
+                vel *= config.VelocidadRun;
+        }
+        else
+        {
+            vel *= config.VelocidadWalk;
+        }
+    }
+    #endregion
 }

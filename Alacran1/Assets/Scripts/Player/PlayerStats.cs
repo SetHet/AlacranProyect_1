@@ -5,9 +5,25 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    #region Singleton
+    protected static PlayerStats _current;
+    public static PlayerStats current { get { return _current; } }
+    void Singleton()
+    {
+        if (_current == null) _current = this;
+        else
+        {
+            Debug.Log("Hay varios player stats");
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
+
     #region Vars
     public Health health = new Health();
     public Armor armor = new Armor();
+    public Energy energy = new Energy();
     #endregion
 
     #region Classes
@@ -168,36 +184,90 @@ public class PlayerStats : MonoBehaviour
         }
         #endregion
     }
+
+    [System.Serializable]
+    public class Energy
+    {
+        #region Variables
+        protected float current = 0;
+        [SerializeField] protected float max = 100;
+        [SerializeField] protected float regeneration = 33.3f;
+        [SerializeField] protected float regeneration_cooldown = 1;
+        [SerializeField] protected float cost = 20f;
+        protected bool activeRegeneration = true;
+        protected float ContinueRegenration = 0;
+        #endregion
+
+        #region Methods
+        public float GetCurrent { get { return current; } }
+        public float GetMax { get { return max; } }
+        public bool isMax { get { return current >= max; } }
+        public bool isEmpty { get { return current <= 0f; } }
+        public float percent { get { return current / max; } }
+
+        public void Init()
+        {
+            current = max;
+        }
+        public bool Use(float deltaTime)
+        {
+            //Debug.Log("Delta Time: " + deltaTime);
+            if (current <= 0f) return false;
+            ContinueRegenration = Time.time + regeneration_cooldown;
+            float resta = (deltaTime * cost);
+            //Debug.Log("resta: " + resta);
+            //Debug.Log("Current 1: " + current);
+            current -= resta;
+            //Debug.Log("Current 2: " + current);
+            if (current <= 0f) current = 0f;
+            //Debug.Log("Current 3: " + current);
+            return true;
+        }
+        public void UpdateRegeneration(float deltaTime)
+        {
+            if (ContinueRegenration > Time.time || current >= max) return;
+            current += regeneration * deltaTime;
+            if (current > max) current = max;
+        }
+        #endregion
+    }
     #endregion
 
-    // Start is called before the first frame update
+    #region Basicc Methods
+    private void Awake()
+    {
+        Singleton();
+    }
     void Start()
     {
         health.Init();
         armor.Init();
+        energy.Init();
     }
-
-    // Update is called once per frame
     void Update()
     {
         health.AutoRegeration(Time.deltaTime);
-        
+        energy.UpdateRegeneration(Time.deltaTime);
     }
+    #endregion
 
+    #region Mehotds
     public void Damage(float value)
     {
         if (value > 0) value = armor.RemoveArmor(value);
         if (value > 0) value = health.Damage(value);
     }
-
     public void Heal(float value)
     {
         if (value > 0) value = health.Heal(value);
     }
-
     public void RepairArmor(float value)
     {
         if (value > 0) value = armor.AddArmor(value);
     }
-
+    public bool Energy_Use(float deltaTime)
+    {
+        return energy.Use(deltaTime);
+    }
+    #endregion
 }

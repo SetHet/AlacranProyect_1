@@ -36,6 +36,7 @@ public class PlayerInput : MonoBehaviour
         public string MoverLateral = "Horizontal";
         public string MoverFrontal = "Vertical";
         public string Jump = "Jump";
+        public KeyCode run = KeyCode.LeftShift;
         [Header("Vision")]
         public string LookRight = "Mouse X";
         public string LookUp = "Mouse Y";
@@ -53,18 +54,11 @@ public class PlayerInput : MonoBehaviour
     #endregion
 
     #region Methods
-    public Vector2 GetWalk()
-    {
-        return new Vector2(Input.GetAxis(nameInputs.MoverLateral), Input.GetAxis(nameInputs.MoverFrontal));
-    }
 
-    public bool isJump
-    {
-        get
-        {
-            return Input.GetButtonDown(nameInputs.Jump);
-        }
-    }
+    public Vector2 GetWalk { get { return new Vector2(Input.GetAxis(nameInputs.MoverLateral), Input.GetAxis(nameInputs.MoverFrontal)); } }
+    public bool isJump { get { return Input.GetButtonDown(nameInputs.Jump); } }
+    public bool isRun { get { return Input.GetKey(nameInputs.run); } }
+
 
     public Vector2 GetLook()
     {
