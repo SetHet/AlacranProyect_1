@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1553106708}
-  m_IndirectSpecularColor: {r: 0.054328773, g: 0.07246952, b: 0.09961193, a: 1}
+  m_IndirectSpecularColor: {r: 0.059403904, g: 0.08348017, b: 0.13003063, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1816,7 +1816,7 @@ GameObject:
   - component: {fileID: 424509261}
   m_Layer: 0
   m_Name: CursorLock
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
