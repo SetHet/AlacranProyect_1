@@ -78,6 +78,10 @@ public class PlayerBag : MonoBehaviour
     #endregion
 
     #region BasicMethods
+    private void Start()
+    {
+        DesabilitarAll();
+    }
     private void Update()
     {
         if (PlayerInput.current.GetItem())
@@ -135,8 +139,8 @@ public class PlayerBag : MonoBehaviour
         if (PlayerInput.current.SelectItemPistol()) itemSelected = ItemSelected.pistol;
         else if (PlayerInput.current.SelectItemAmetralladora()) itemSelected = ItemSelected.ametralladora;
         else if (PlayerInput.current.SelectItemShotgun()) itemSelected = ItemSelected.shotgun;
-        else if (PlayerInput.current.SelectItemBotiquin()) itemSelected = ItemSelected.botiquin;
-        else if (PlayerInput.current.SelectItemPlaca()) itemSelected = ItemSelected.placaArmor;
+        else if (PlayerInput.current.SelectItemBotiquin() && !items.botiquin.isEmpty) itemSelected = ItemSelected.botiquin;
+        else if (PlayerInput.current.SelectItemPlaca() && !items.armaduraPlaca.isEmpty) itemSelected = ItemSelected.placaArmor;
         else change = false;
         if (change) ChangeSelectItem();
     }

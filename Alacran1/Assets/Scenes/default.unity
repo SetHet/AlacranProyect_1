@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1553106708}
-  m_IndirectSpecularColor: {r: 0.059539735, g: 0.08297102, b: 0.12640435, a: 1}
+  m_IndirectSpecularColor: {r: 0.049709063, g: 0.0699438, b: 0.10941395, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000,
       type: 0}
@@ -77,10 +78,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 8
     m_PVRSampleCount: 50
     m_PVRBounces: 4
+    m_PVREnvironmentSampleCount: 50
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -89,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 112000000, guid: d05b76ba1c84e564496bad42ca1740ba,
     type: 2}
   m_UseShadowmask: 0
@@ -616,17 +624,20 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 148804158}
@@ -1517,7 +1528,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3395
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -1527,7 +1538,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.06
+      value: -16.94
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -1568,6 +1579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 41.620663
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b3ed223f9a7804a997f447c20cb36a, type: 3}
@@ -2042,7 +2058,7 @@ PrefabInstance:
     - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
         type: 3}
@@ -2052,7 +2068,7 @@ PrefabInstance:
     - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.69
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
         type: 3}
@@ -2093,6 +2109,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 26.685192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253139739711211678, guid: 8595b7f11d714be4c839d3ea3ebf402e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 38.260498
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8595b7f11d714be4c839d3ea3ebf402e, type: 3}
@@ -2447,7 +2473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 0c7e19bc18833ad43a97303c314eb8a8, type: 2}
-  m_BakingSkyUniqueID: 2
+  m_StaticLightingSkyUniqueID: 2
 --- !u!114 &606065670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2464,7 +2490,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 567c2b9d6d8f4a146910f1b1da8fb766, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!4 &606065671
 Transform:
   m_ObjectHideFlags: 0
@@ -2494,7 +2520,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.5
+      value: -15.6
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -2504,7 +2530,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.02
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -2545,6 +2571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 26.975397
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b3ed223f9a7804a997f447c20cb36a, type: 3}
@@ -2610,17 +2641,20 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 671240548}
@@ -3163,7 +3197,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3395
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -3214,6 +3248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 41.620663
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b3ed223f9a7804a997f447c20cb36a, type: 3}
@@ -3842,7 +3881,7 @@ PrefabInstance:
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.4
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
         type: 3}
@@ -3883,6 +3922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961550643137711488, guid: a3b3ed223f9a7804a997f447c20cb36a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 28.44559
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b3ed223f9a7804a997f447c20cb36a, type: 3}
@@ -4979,17 +5023,20 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1421779918}
@@ -5760,12 +5807,13 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553106706}
   m_Enabled: 1
-  serializedVersion: 8
+  serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -5775,6 +5823,24 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -5782,12 +5848,15 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 7834
   m_UseColorTemperature: 1
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &1553106709
@@ -5847,8 +5916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 3
-  m_Version: 3
+  version: 4
+  m_Version: 4
   directionalIntensity: 3.1415927
   punctualIntensity: 600
   areaIntensity: 200
@@ -5865,7 +5934,7 @@ MonoBehaviour:
   affectSpecular: 1
   nonLightmappedOnly: 0
   lightTypeExtent: 0
-  spotLightShape: 0
+  m_SpotLightShape: 0
   shapeWidth: 0.5
   shapeHeight: 0.5
   aspectRatio: 1
@@ -5878,12 +5947,21 @@ MonoBehaviour:
   showAdditionalSettings: 0
   displayLightIntensity: 2
   displayAreaLightEmissiveMesh: 0
+  areaLightCookie: {fileID: 0}
+  areaLightShadowCone: 120
+  evsmExponent: 15
+  evsmLightLeakBias: 0
+  evsmVarianceBias: 0.00001
+  evsmBlurPasses: 0
   lightLayers: 1
   shadowNearPlane: 0.1
   shadowSoftness: 0.5
   blockerSampleCount: 24
   filterSampleCount: 16
   minFilterSize: 0.00001
+  kernelSize: 5
+  lightAngle: 1
+  maxDepthBias: 0.001
 --- !u!4 &1561627628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6132887045097318566, guid: b117f4b7e41433449a7e6e4c098f52f5,
