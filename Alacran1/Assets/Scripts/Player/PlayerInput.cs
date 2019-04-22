@@ -43,6 +43,7 @@ public class PlayerInput : MonoBehaviour
         [Header("Acciones")]
         public string LeftClick = "Fire1";
         public KeyCode getItem = KeyCode.E;
+        public KeyCode ReLoad = KeyCode.R;
         [Header("Items")]
         public KeyCode selectItemPistol = KeyCode.Alpha1;
         public KeyCode selectItemAmetralladora = KeyCode.Alpha2;
@@ -64,12 +65,19 @@ public class PlayerInput : MonoBehaviour
     {
         return new Vector2(Input.GetAxis(nameInputs.LookRight), -Input.GetAxis(nameInputs.LookUp));
     }
-
     public bool GetItem()
     {
         return Input.GetKeyDown(nameInputs.getItem);
     }
-
+    public bool GetFire()
+    {
+        return Input.GetButton(nameInputs.LeftClick);
+    }
+    public bool GetReloadDown()
+    {
+        return Input.GetKeyDown(nameInputs.ReLoad);
+    }
+    #region Select
     public bool SelectItemPistol()
     {
         return Input.GetKeyDown(nameInputs.selectItemPistol);
@@ -90,5 +98,6 @@ public class PlayerInput : MonoBehaviour
     {
         return Input.GetKeyDown(nameInputs.selectItemPlaca);
     }
+    #endregion
     #endregion
 }
