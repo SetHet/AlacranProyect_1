@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemAnimationEvent : MonoBehaviour
+public abstract class ItemMonoBehaviour : MonoBehaviour
 {
+    public abstract void Out(GameObject root);
+
     public delegate void HandleEvent();
 
     public HandleEvent event_out;
-    public void Out()
+    public void EventOut()
     {
         event_out?.Invoke();
-    }
-
-    public HandleEvent event_reload;
-    public void Reload()
-    {
-        event_reload?.Invoke();
     }
 }

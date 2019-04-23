@@ -184,7 +184,10 @@ public class PlayerBag : MonoBehaviour
     }
     void Desabilitar(GameObject obj)
     {
-        if (obj != null) obj.SetActive(false);
+        if (obj == null) return;
+        ItemMonoBehaviour item = obj.GetComponentInChildren<ItemMonoBehaviour>();
+        if (item != null) item.Out(obj);
+        else if (obj != null) obj.SetActive(false);
     }
     #endregion
 
