@@ -55,6 +55,7 @@ public class Ametralladora_T : ItemMonoBehaviour
 
 
     #region Methods
+    
     void Fire(bool enabled)
     {
         animator.SetBool(param_fire, enabled);
@@ -71,8 +72,9 @@ public class Ametralladora_T : ItemMonoBehaviour
     }
     void inOut()
     {
+        _REPAIR_ANIMATOR(animator, "empty");
         root.SetActive(false);
-        animator.Play("In", 0);
+        
     }
     public void CallSound(string nameClip)
     {

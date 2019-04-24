@@ -13,4 +13,10 @@ public abstract class ItemMonoBehaviour : MonoBehaviour
     {
         event_out?.Invoke();
     }
+
+    public void _REPAIR_ANIMATOR(Animator animator, string estado_vacio = "empty")
+    {
+        animator.CrossFade(estado_vacio, 0f);
+        animator.Update(0f);
+    }
 }
