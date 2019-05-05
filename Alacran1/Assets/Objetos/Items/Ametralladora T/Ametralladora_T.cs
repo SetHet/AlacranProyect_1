@@ -100,6 +100,7 @@ public class Ametralladora_T : ItemMonoBehaviour
     public HandleEvent event_fire;
     public void EventFire()
     {
+        CallSound("Fire");
         event_fire?.Invoke();
     }
 
