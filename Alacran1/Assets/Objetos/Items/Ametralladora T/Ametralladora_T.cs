@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ametralladora_T : ItemMonoBehaviour
 {
-    #region Variables
+    #region Variables Configuracion
     [SerializeField] protected string param_reload = "Reload";
     [SerializeField] protected string param_fire = "Fire";
     [SerializeField] protected string param_out = "Out";
@@ -23,6 +23,11 @@ public class Ametralladora_T : ItemMonoBehaviour
     GameObject root;
     #endregion
 
+    #region Variables Almacenamiento
+    public PlayerBag bag;
+    public int municion = 0;
+    public int municion_maxima = 50;
+    #endregion
 
     #region Basic Methods
     private void Awake()
@@ -37,12 +42,12 @@ public class Ametralladora_T : ItemMonoBehaviour
     private void Update()
     {
         if (reloading) return;
-        if (PlayerInput.current.GetReloadDown())
+        if (PlayerInput.current.GetReloadDown() && !bag.items.ammo_ametralladora.isEmpty)
         {
             Fire(false);
             Reload();
         }
-        else if (PlayerInput.current.GetFire())
+        else if (PlayerInput.current.GetFire() && municion > 0)
         {
             Fire(true);
         }
@@ -51,11 +56,14 @@ public class Ametralladora_T : ItemMonoBehaviour
             Fire(false);
         }
     }
+    private void OnGUI()
+    {
+        string mensaje = "Amet: " + municion + "/" + municion_maxima + "><bag:" + bag.items.ammo_ametralladora.getCurrent;
+        GUI.Label(new Rect(Screen.width - 100, Screen.height - 20, 100, 20), mensaje);
+    }
     #endregion
-
-
     #region Methods
-    
+
     void Fire(bool enabled)
     {
         animator.SetBool(param_fire, enabled);
@@ -64,6 +72,7 @@ public class Ametralladora_T : ItemMonoBehaviour
     {
         reloading = true;
         animator.SetTrigger(param_reload);
+        Bag_Reload();
     }
     public override void Out(GameObject _root)
     {
@@ -88,8 +97,31 @@ public class Ametralladora_T : ItemMonoBehaviour
     }
 
     #endregion
+    #region Methods Almacenamiento
+    void Bag_Fire()
+    {
+        municion--;
+        if (municion <= 0) Fire(false);
+    }
+    void Bag_Reload()
+    {
+        int cantidad_bag = bag.items.ammo_ametralladora.getCurrent;
+        int necesita = municion_maxima - municion;
+
+        if (cantidad_bag > necesita)
+        {
+            municion = municion_maxima;
+            bag.items.ammo_ametralladora.Remove((ushort)necesita);
+        }
+        else
+        {
+            municion += cantidad_bag;
+            bag.items.ammo_ametralladora.Remove((ushort)cantidad_bag);
+        }
+    }
+    #endregion
     #region Events Animation
-    
+
     public HandleEvent event_reload;
     public void EventReload()
     {
@@ -100,6 +132,7 @@ public class Ametralladora_T : ItemMonoBehaviour
     public HandleEvent event_fire;
     public void EventFire()
     {
+        Bag_Fire();
         event_fire?.Invoke();
     }
 
