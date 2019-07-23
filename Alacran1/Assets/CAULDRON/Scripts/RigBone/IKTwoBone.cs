@@ -12,14 +12,25 @@ namespace RigBone
 
         #region Configuracion
         [Header("Bones")]
+        public Transform Bone_root;
         public Transform bone_pre;
         public Transform bone_mid;
         public Transform bone_pos;
         [Header("Rigs")]
         public Transform effector;
         public Transform codo;
+        public Transform rig_root;
         [Header("Advanced")]
         public bool EnableRotationExtern = true;
+        public Cambio CambioRoot = Cambio.None;
+
+        public enum Cambio
+        {
+            None,
+            Posicion,
+            Rotacion
+        }
+
         #endregion
 
         #region MonoBehaviour
@@ -37,6 +48,32 @@ namespace RigBone
             Transform C = bone_pos;
             Transform E = effector;
             Transform F = codo;
+
+            if (rig_root != null && Bone_root != null) {
+
+                Transform R = Bone_root;
+                Transform ER = rig_root;
+                Vector3 rer = Formulas.GetDirPos(R, ER);
+                Vector3 ra = Formulas.GetDirPos(R, A);
+                Vector3 r_axis = Vector3.Cross(ra, rer).normalized;
+                float r_angle = Vector3.SignedAngle(ra, rer, r_axis);
+
+                R.Rotate(r_axis, r_angle, Space.World);
+
+                if (CambioRoot != Cambio.None)
+                {
+                    if (CambioRoot == Cambio.Posicion)
+                    {
+                        ER.position = A.position;
+                    }
+                    else if (CambioRoot == Cambio.Rotacion)
+                    {
+                        ER.RotateAround(R.position, r_axis, r_angle);
+                        ER.position = A.position;
+                    }
+                }
+            }
+
 
             Vector3 ab = Formulas.GetDirPos(A, B);
             Vector3 bc = Formulas.GetDirPos(B, C);
