@@ -51,8 +51,8 @@ public class PlayerBag : MonoBehaviour
     public LayerMask itemLayer = 0;
     public float distanceDetectItem = 2f;
 
-    ItemSelected itemSelected = ItemSelected.pistol;
-    enum ItemSelected
+    public ItemSelected itemSelected = ItemSelected.pistol;
+    public enum ItemSelected
     {
         pistol,
         ametralladora,
