@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Diana : MonoBehaviour
+public class Diana : MonoBehaviour, InterfaceDamage
 {
     public Animator animator;
 
@@ -46,6 +46,11 @@ public class Diana : MonoBehaviour
     {
         if (!enabled) return;
         animator.SetBool("up", up);
+    }
+
+    public void Damage(float value = 0f)
+    {
+        Down();
     }
 
 }

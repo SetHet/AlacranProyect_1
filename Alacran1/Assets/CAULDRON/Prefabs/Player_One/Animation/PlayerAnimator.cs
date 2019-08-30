@@ -33,7 +33,7 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetFloat("moveVertical", move_v);
         animator.SetFloat("moveHorizontal", move_h);
 
-        Debug.Log("Corriendo Camera Movimiento" + move_v);
+
     }
 
     void MinMax(ref float x, float min = -1, float max = 1)
