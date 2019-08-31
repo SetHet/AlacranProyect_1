@@ -22,6 +22,12 @@ public class Weapon_Ametralladora : MonoBehaviour
     public Animator animator;
     public string moveVertical = "moveVertical";
     public string moveHorizotal = "moveHorizontal";
+
+    [Header("Hole")]
+    public GameObject prefabHole;
+    public float TimeDestroy = 10f;
+    public float SizeMax = 0.05f;
+    public float SizeMin = 0.02f;
     //private 
     float coolDownFire = 0.001f;
     float time_coolDownFire = 0f;
@@ -71,6 +77,7 @@ public class Weapon_Ametralladora : MonoBehaviour
             {
                 obj.Damage(daño);
             }
+            CreateHole(hit);
         }
 
         Recoil();
@@ -102,6 +109,18 @@ public class Weapon_Ametralladora : MonoBehaviour
         animator.SetFloat(moveVertical, move.y);
     }
 
+    void CreateHole(RaycastHit hit)
+    {
+        if (prefabHole == null) return;
+        GameObject obj = Instantiate(prefabHole, hit.point + hit.normal * 0.001f, Quaternion.identity);
+
+        obj.transform.forward = hit.normal;
+
+        Vector2 size = new Vector2(Random.Range(SizeMin, SizeMax), Random.Range(SizeMin, SizeMax));
+        obj.transform.localScale = size;
+        obj.transform.parent = hit.collider.transform;
+        Destroy(obj, TimeDestroy);
+    }
     
     #endregion
 }
