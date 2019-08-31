@@ -30,8 +30,11 @@ public class PlayerAnimator : MonoBehaviour
         MinMax(ref move_v);
         MinMax(ref move_h);
 
-        animator.SetFloat("moveVertical", move_v);
-        animator.SetFloat("moveHorizontal", move_h);
+        Vector2 vec = new Vector2(move_h, move_v);
+        if (vec.magnitude > 1) vec = vec.normalized;
+
+        animator.SetFloat("moveVertical", vec.y);
+        animator.SetFloat("moveHorizontal", vec.x);
 
 
     }

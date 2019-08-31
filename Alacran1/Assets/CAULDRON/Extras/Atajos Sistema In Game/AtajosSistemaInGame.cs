@@ -18,6 +18,7 @@ namespace Extra
             [Header("Controles")]
             public KeyCode button_general = KeyCode.RightControl;
             public KeyCode button_rendimiento = KeyCode.U;
+            public KeyCode button_mouseLock = KeyCode.L;
         }
 
         public Estado state;
@@ -31,6 +32,9 @@ namespace Extra
         private void Start()
         {
             DisableAll();
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void Update()
@@ -42,6 +46,19 @@ namespace Extra
                 SetActiveInterfaz(config.main, true, "Interfaz principal (main)");
                 // Especiales
                 if (Input.GetKeyDown(config.button_rendimiento)) state.enable_rendimiento = !state.enable_rendimiento;
+                if (Input.GetKeyDown(config.button_mouseLock))
+                {
+                    if (Cursor.lockState == CursorLockMode.None)
+                    {
+                        Cursor.lockState = CursorLockMode.Locked;
+                        Cursor.visible = false;
+                    }
+                    else
+                    {
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                    }
+                }
             }
             else
             {

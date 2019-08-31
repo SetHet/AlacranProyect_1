@@ -44,6 +44,7 @@ public class PlayerInput : MonoBehaviour
         public string LeftClick = "Fire1";
         public KeyCode getItem = KeyCode.E;
         public KeyCode ReLoad = KeyCode.R;
+        public string RightClick = "Fire2";
         [Header("Items")]
         public KeyCode selectItemPistol = KeyCode.Alpha1;
         public KeyCode selectItemAmetralladora = KeyCode.Alpha2;
@@ -76,6 +77,10 @@ public class PlayerInput : MonoBehaviour
     public bool GetReloadDown()
     {
         return Input.GetKeyDown(nameInputs.ReLoad);
+    }
+    public bool GetAim()
+    {
+        return Input.GetButton(nameInputs.RightClick);
     }
     #region Select
     public bool SelectItemPistol()

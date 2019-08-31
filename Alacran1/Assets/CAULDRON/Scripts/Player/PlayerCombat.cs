@@ -13,6 +13,14 @@ public class PlayerCombat : MonoBehaviour
     public string anim_fire = "fire";
     public string anim_reload = "reload";
     public string anim_enable = "active";
+    public string anim_aim = "aim";
+
+    [Header("Apuntar")]
+    public float VelocidadApuntado = 3f;
+    public float VelocidadDesapuntar = 3f;
+
+    //Privados
+    float aimValue = 0f;
 
     #endregion
 
@@ -21,6 +29,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Fire();
         Reload();
+        Aim();
     }
 
     #endregion
@@ -41,6 +50,21 @@ public class PlayerCombat : MonoBehaviour
         {
             animator.SetTrigger(anim_reload);
         }
+    }
+
+    void Aim()
+    {
+        if (PlayerInput.current.GetAim())
+        {
+            aimValue += Time.deltaTime * VelocidadApuntado;
+            if (aimValue > 1) aimValue = 1;
+        }
+        else
+        {
+            aimValue -= Time.deltaTime * VelocidadDesapuntar;
+            if (aimValue < 0) aimValue = 0;
+        }
+        animator.SetFloat(anim_aim, aimValue);
     }
     #endregion
 

@@ -10,13 +10,22 @@ public class Weapon_Ametralladora : MonoBehaviour
     public float daño = 40f;
     public float distanciaMaxima = 100f;
     public LayerMask layerDaño = -1;
-    
+    public float minRecoil = 0.05f;
+    public float maxRecoil = 0.2f;
+
     [Header("Sonido")]
     public AudioSource audioFire;
     public AudioSource audioReload;
     public AudioClip audioClipReaload_A;
     public AudioClip audioClipReaload_B;
+
+    //private 
+    public Animator animator;
+    public string moveVertical = "moveVertical";
+    public string moveHorizotal = "moveHorizontal";
     #endregion
+
+
 
 
     #region Metodos De Animacion
@@ -56,6 +65,36 @@ public class Weapon_Ametralladora : MonoBehaviour
                 obj.Damage(daño);
             }
         }
+
+        Recoil();
+
     }
+
+    void Recoil()
+    {
+        Vector2 move = new Vector2();
+
+        move.x = Random.Range(-maxRecoil, maxRecoil);
+        move.y = Random.Range(-maxRecoil, maxRecoil);
+
+        if (move.magnitude > maxRecoil)
+        {
+            move = move.normalized * maxRecoil;
+        }
+        else if (move.magnitude < minRecoil)
+        {
+            move = move.normalized * minRecoil;
+        }
+
+        move.x += animator.GetFloat(moveHorizotal);
+        move.y += animator.GetFloat(moveVertical);
+
+        if (move.magnitude > 1) move = move.normalized;
+
+        animator.SetFloat(moveHorizotal, move.x);
+        animator.SetFloat(moveVertical, move.y);
+    }
+
+    
     #endregion
 }
