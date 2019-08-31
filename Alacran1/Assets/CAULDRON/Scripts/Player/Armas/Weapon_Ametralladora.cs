@@ -19,10 +19,12 @@ public class Weapon_Ametralladora : MonoBehaviour
     public AudioClip audioClipReaload_A;
     public AudioClip audioClipReaload_B;
 
-    //private 
     public Animator animator;
     public string moveVertical = "moveVertical";
     public string moveHorizotal = "moveHorizontal";
+    //private 
+    float coolDownFire = 0.001f;
+    float time_coolDownFire = 0f;
     #endregion
 
 
@@ -31,17 +33,23 @@ public class Weapon_Ametralladora : MonoBehaviour
     #region Metodos De Animacion
     public void Fire_Ametralladora()
     {
+        if (!DireccionDaño.gameObject.activeInHierarchy) return;
+        if (time_coolDownFire > Time.time) return;
+        time_coolDownFire = Time.time + coolDownFire;
+
         Atack();
         audioFire.Play();
     }
     
     public void Reload_Ametralladora_1()
     {
+        if (!DireccionDaño.gameObject.activeInHierarchy) return;
         audioReload.clip = audioClipReaload_A;
         audioReload.Play();
     }
     public void Reload_Ametralladora_2()
     {
+        if (!DireccionDaño.gameObject.activeInHierarchy) return;
         audioReload.clip = audioClipReaload_B;
         audioReload.Play((ulong)0.6f);
     }
@@ -51,17 +59,16 @@ public class Weapon_Ametralladora : MonoBehaviour
     #region Methods
     void Atack()
     {
+        
+
         Vector3 origen = DireccionDaño.position;
         Vector3 direccion = DireccionDaño.forward;
         RaycastHit hit;
-        Debug.Log("Atack 0");
         if (Physics.Raycast(origen, direccion, out hit, distanciaMaxima, layerDaño, QueryTriggerInteraction.Ignore))
         {
-            Debug.Log("Atack 1");
             InterfaceDamage obj = hit.collider.GetComponent<InterfaceDamage>();
             if (obj != null)
             {
-                Debug.Log("Atack 2");
                 obj.Damage(daño);
             }
         }

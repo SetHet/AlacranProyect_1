@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
     [Header("Apuntar")]
     public float VelocidadApuntado = 3f;
     public float VelocidadDesapuntar = 3f;
+    public GameObject cruceta;
 
     //Privados
     float aimValue = 0f;
@@ -58,11 +59,13 @@ public class PlayerCombat : MonoBehaviour
         {
             aimValue += Time.deltaTime * VelocidadApuntado;
             if (aimValue > 1) aimValue = 1;
+            if (aimValue > .8f) cruceta.SetActive(false);
         }
         else
         {
             aimValue -= Time.deltaTime * VelocidadDesapuntar;
             if (aimValue < 0) aimValue = 0;
+            if (aimValue < .8f) cruceta.SetActive(true);
         }
         animator.SetFloat(anim_aim, aimValue);
     }

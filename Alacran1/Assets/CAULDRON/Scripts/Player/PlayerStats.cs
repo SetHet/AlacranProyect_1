@@ -269,5 +269,10 @@ public class PlayerStats : MonoBehaviour
     {
         return energy.Use(deltaTime);
     }
+
+    public bool isDeath()
+    {
+        return health.nodos[0].GetCurrent <= 0;
+    }
     #endregion
 }
